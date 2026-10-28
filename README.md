@@ -22,8 +22,8 @@
 | ไฟล์ | ทำอะไร |
 |---|---|
 | `sql/00_setup_mock_data.sql` | สร้าง database, ตาราง, procedure และข้อมูล 1,000,000 แถว |
-| `sql/01_join_in.sql` | แบบที่ 2 — `JOIN ... IN (...)` |
-| `sql/02_join_union.sql` | แบบที่ 1 — `UNION` 3 ก้อน |
+| `sql/01_join_in.sql` | แบบที่ 1 — `JOIN ... IN (...)` |
+| `sql/02_join_union.sql` | แบบที่ 2 — `UNION` 3 ก้อน |
 
 วัดเวลาด้วยการเปิด `EXPLAIN ANALYZE` ที่หัว query ในไฟล์ 01 และ 02 รันแต่ละไฟล์ 2 รอบ แล้วใช้รอบที่ 2
 

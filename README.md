@@ -1,6 +1,6 @@
 # ทำไม JOIN ช้า? — UUID ปน 4 รูปแบบ: UNION vs IN (MySQL)
 
-โค้ดประกอบคลิปของ **DevHops** [Facebook](https://www.facebook.com/share/19ruKTdPCk/)) · [Tiktok](https://www.tiktok.com/@devhopsss)) ·([Youtube](https://www.youtube.com/@devhops) · [godevhops.com](https://godevhops.com))  
+โค้ดประกอบคลิปของ **DevHops** ([Facebook](https://www.facebook.com/share/19ruKTdPCk/) · [Tiktok](https://www.tiktok.com/@devhopsss) ·[Youtube](https://www.youtube.com/@devhops) · [godevhops.com](https://godevhops.com))  
 
 เคสจำลองร้านค้าออนไลน์ ข้อมูลทั้งหมดเป็น mock data ไม่มีข้อมูลงานจริง
 สองตาราง join กันด้วย UUID แต่ฝั่งหลักเก็บเป็น `{UPPER}` ส่วนฝั่งเว็บปนมา 4 รูปแบบ

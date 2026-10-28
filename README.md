@@ -1,15 +1,13 @@
 # ทำไม JOIN ช้า? — UUID ปน 4 รูปแบบ: UNION vs IN (MySQL)
 
-โค้ดประกอบคลิปของ **DevHops** ([@devhops](https://www.youtube.com/@devhops) · [godevhops.com](https://godevhops.com))
+โค้ดประกอบคลิปของ **DevHops** [Facebook](https://www.facebook.com/share/19ruKTdPCk/)) · [Tiktok](https://www.tiktok.com/@devhopsss)) ·([Youtube](https://www.youtube.com/@devhops) · [godevhops.com](https://godevhops.com))  
 
 เคสจำลองร้านค้าออนไลน์ ข้อมูลทั้งหมดเป็น mock data ไม่มีข้อมูลงานจริง
 สองตาราง join กันด้วย UUID แต่ฝั่งหลักเก็บเป็น `{UPPER}` ส่วนฝั่งเว็บปนมา 4 รูปแบบ
 (`UPPER` / `lower` / `{UPPER}` / `{lower}`) คลิปนี้เทียบสองวิธี join ที่พบบ่อย
 
-1. **UNION** — แยก query ตามรูปแบบ แล้วรวมผล
-2. **IN** — ใส่ทุกรูปแบบไว้ใน `JOIN ... ON ... IN (...)` ตัวเดียว
-
-> ต้องใช้ **MySQL 8.0+** (การวัด `CPU_TIME` ใน `04_compare.sql` ต้องใช้ 8.0.28+)
+1. **IN** — ใส่ทุกรูปแบบไว้ใน `JOIN ... ON ... IN (...)` ตัวเดียว
+2. **UNION** — แยก query ตามรูปแบบ แล้วรวมผล
 
 ## ตาราง
 
@@ -24,12 +22,10 @@
 | ไฟล์ | ทำอะไร |
 |---|---|
 | `sql/00_setup_mock_data.sql` | สร้าง database, ตาราง, procedure และข้อมูล 1,000,000 แถว |
-| `sql/01_setup_zone_master.sql` | สร้าง `zone_master` + index `idx_ts_status` บน `order_inbox` |
+| `sql/01_join_in.sql` | แบบที่ 2 — `JOIN ... IN (...)` |
 | `sql/02_join_union.sql` | แบบที่ 1 — `UNION` 3 ก้อน |
-| `sql/03_join_in.sql` | แบบที่ 2 — `JOIN ... IN (...)` |
-| `sql/04_compare.sql` | เช็กว่าผลลัพธ์เท่ากัน + ดูเวลา/CPU ของทั้งสองแบบ |
 
-วัดเวลาด้วยการเปิด `EXPLAIN ANALYZE` ที่หัว query ในไฟล์ 02 และ 03 รันแต่ละไฟล์ 2 รอบ แล้วใช้รอบที่ 2
+วัดเวลาด้วยการเปิด `EXPLAIN ANALYZE` ที่หัว query ในไฟล์ 01 และ 02 รันแต่ละไฟล์ 2 รอบ แล้วใช้รอบที่ 2
 
 เพิ่มข้อมูลได้ตลอดด้วย
 

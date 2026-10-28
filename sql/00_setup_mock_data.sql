@@ -13,7 +13,7 @@
 -- =====================================================================
 
 CREATE DATABASE IF NOT EXISTS shop_core CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE DATABASE IF NOT EXISTS shop_web  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS shop_web  CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE shop_web;
 
 -- ---------------------------------------------------------------------
@@ -85,7 +85,7 @@ CREATE TABLE order_inbox (
   remark        VARCHAR(255) DEFAULT NULL,
   rec_status    VARCHAR(20)  NOT NULL DEFAULT 'active',
   PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ---------------------------------------------------------------------
 -- 2. PROCEDURE สร้าง mock data (เรียกซ้ำได้ ไม่ชน unique key เดิม)
